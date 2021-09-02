@@ -9,6 +9,7 @@ RUN apt -y install \
   bc \
   bison \
   build-essential \
+  cpio \
   curl \
   flex \
   git \
