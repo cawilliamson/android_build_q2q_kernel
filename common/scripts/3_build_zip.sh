@@ -16,7 +16,7 @@ git clone \
 
 # create modules directory structure
 rm -rfv /usr/src/anykernel3/modules/*
-mkdir -p /usr/src/anykernel3/modules/vendor/lib/modules
+mkdir -p /usr/src/anykernel3/modules/system/vendor/lib/modules
 
 # create config
 cp -fv /common/configs/anykernel.sh /usr/src/anykernel3/anykernel.sh
@@ -32,7 +32,7 @@ pushd /usr/src/kernel
   CLANG_TRIPLE=$CLANG_TRIPLE \
   CONFIG_SECTION_MISMATCH_WARN_ONLY=y \
   CROSS_COMPILE=$BUILD_CROSS_COMPILE \
-  INSTALL_MOD_PATH=/usr/src/anykernel3/modules/vendor \
+  INSTALL_MOD_PATH=/usr/src/anykernel3/modules/system/vendor \
   REAL_CC=$KERNEL_LLVM_BIN \
   modules_install
 popd
