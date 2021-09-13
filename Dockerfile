@@ -13,6 +13,7 @@ RUN apt -y install \
   curl \
   flex \
   git \
+  kmod \
   libncurses5 \
   libncurses-dev \
   libssl-dev \

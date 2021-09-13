@@ -37,10 +37,18 @@ pushd /usr/src/kernel
   modules_install
 popd
 
+# copy modules.order to modules.load
+find /usr/src/anykernel3/modules -type f -name 'modules.order' | \
+  xargs -i sh -c 'cp -v "{}" "$(dirname {})/modules.load"'
+
 # cleanup previous zips
 rm -f /out/*.zip
 
+# remove junk before zipping
+find /usr/src/anykernel -type -f -name 'placeholder' -delete
+rm -rf /usr/src/anykernel3/.git /usr/src/anykernel3/README.md
+
 # create zip file
 pushd /usr/src/anykernel3
-  zip -r -y -9 /out/leanKernel.zip . -x .git README.md *placeholder
+  zip -r -y -9 /out/leanKernel.zip .
 popd
