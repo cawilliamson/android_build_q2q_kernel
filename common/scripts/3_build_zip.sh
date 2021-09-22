@@ -24,7 +24,7 @@ gzip -9 -c /usr/src/kernel/out/arch/arm64/boot/Image > /usr/src/anykernel3/Image
 rm -f /out/*.zip
 
 # remove junk before zipping
-find /usr/src/anykernel -type f -name 'placeholder' -delete
+find /usr/src/anykernel3 -type f -name 'placeholder' -delete
 rm -rf /usr/src/anykernel3/.git /usr/src/anykernel3/README.md
 
 # create zip file
