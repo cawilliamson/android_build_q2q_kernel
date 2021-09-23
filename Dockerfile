@@ -21,6 +21,7 @@ RUN apt -y install \
   python3 \
   python3-pip \
   wget \
+  xz-utils \
   zip
 
 RUN git clone \
@@ -28,7 +29,7 @@ RUN git clone \
   https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 \
   /opt/aarch64-linux-android-4.9
 
-RUN git clone \
-  --depth=1 \
-  https://github.com/P-404/proprietary_vendor_qcom_sdclang.git \
-  /opt/qcom-clang
+RUN curl -L -o llvm.tar.xz https://github.com/llvm/llvm-project/releases/download/llvmorg-11.0.1/clang+llvm-11.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz && \
+  mkdir -p /opt/llvm && \
+  tar -xf llvm.tar.xz --strip-components=1 -C /opt/llvm && \
+  rm -vf llvm.tar.xz

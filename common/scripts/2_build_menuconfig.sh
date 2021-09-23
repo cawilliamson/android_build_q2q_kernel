@@ -9,7 +9,7 @@ export ARCH PROJECT_NAME
 
 BUILD_CROSS_COMPILE="/opt/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
 CLANG_TRIPLE="aarch64-linux-gnu-"
-KERNEL_LLVM_BIN="/opt/qcom-clang/bin/clang"
+KERNEL_LLVM_BIN="/opt/llvm/bin/clang"
 KERNEL_MAKE_ENV="DTC_EXT=$(pwd)/tools/dtc CONFIG_BUILD_ARM64_DT_OVERLAY=y"
 
 mkdir -p out/
