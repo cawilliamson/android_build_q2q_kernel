@@ -4,6 +4,7 @@
 cd /usr/src/kernel
 
 ARCH=arm64
+PATH=$PATH:/usr/src/kernel/tools
 PROJECT_NAME=q2q
 export ARCH PROJECT_NAME
 
