@@ -26,5 +26,5 @@ rm -f /out/*.zip
 
 # create zip file
 pushd /usr/src/anykernel3
-  zip -r9 /out/leanKernel.zip -x .git README.md *placeholder
+  zip -r9 /out/leanKernel.zip * -x .git README.md *placeholder
 popd
