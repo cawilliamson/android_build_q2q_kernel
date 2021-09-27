@@ -17,17 +17,13 @@ git clone \
 # create config
 cp -fv /common/configs/anykernel.sh /usr/src/anykernel3/anykernel.sh
 
-# gzip kernel image (and copy at the same time)
-gzip -9 -c /usr/src/kernel/out/arch/arm64/boot/Image > /usr/src/anykernel3/Image.gz
+# copy kernel image and dtb to zip
+cp -v /usr/src/kernel/out/arch/arm64/boot/Image-dtb /usr/src/anykernel3/Image-dtb
 
 # cleanup previous zips
 rm -f /out/*.zip
 
-# remove junk before zipping
-find /usr/src/anykernel3 -type f -name 'placeholder' -delete
-rm -rf /usr/src/anykernel3/.git /usr/src/anykernel3/README.md
-
 # create zip file
 pushd /usr/src/anykernel3
-  zip -r -y -9 /out/leanKernel.zip .
+  zip -r9 /out/leanKernel.zip -x .git README.md *placeholder
 popd
