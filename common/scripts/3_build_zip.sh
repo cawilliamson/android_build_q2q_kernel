@@ -17,11 +17,9 @@ git clone \
 # create config
 cp -fv /common/configs/anykernel.sh /usr/src/anykernel3/anykernel.sh
 
-ls -l /usr/src/kernel/out/arch/arm64/boot/
-exit 1
-
 # copy kernel image and dtb to zip
-cp -v /usr/src/kernel/out/arch/arm64/boot/Image-dtb /usr/src/anykernel3/Image-dtb
+cp -v /usr/src/kernel/out/arch/arm64/boot/Image /usr/src/anykernel3/Image
+cp -v /usr/src/kernel/out/arch/arm64/boot/dtbo.img /usr/src/anykernel3/dtbo.img
 
 # cleanup previous zips
 rm -f /out/*.zip
